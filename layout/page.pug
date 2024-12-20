@@ -1,0 +1,23 @@
+extends includes/layout
+
+block content
+    .page(itemscope itemtype='http://schema.org/CreativeWork')
+        - var align = '<b>[ </b>'
+        - var title = ''
+        - var tag = ''
+        if page.date 
+            - align += 'Latest Update on <b>'+moment(page.date).format("YYYY-MM-DD")+'</b>'
+        if page.github_link 
+            - align += '<b> | </b>Available in <a href="'+page.github_link+'"><b>GitHub</b></a>'
+        if ((page.section) && (page.type === 'Post'))
+            - title += page.section+': '
+        - align += '<b> ]</b>'
+        - title += page.title
+        h2.page-title!= title
+        if page.tags 
+            - tag += ' '
+            if page.tags.length
+                each item, index in page.tags
+                    - tag += '#<a href="/Tags/#'+item+'"><i>'+item+'</i></a> '
+            - tag += '<br>'
+        article!= tag+align+page.content
