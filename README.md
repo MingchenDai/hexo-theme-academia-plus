@@ -8,7 +8,7 @@ This repository includes minor updates to the Academia theme. For detailed infor
 
 ## What's New
 
-- $\LaTeX$ is now supported. To enable LaTeX rendering, update your` _config.yml` file with the following configurations:
+- $\LaTeX$ is now supported. To enable $\LaTeX$ rendering, update your` _config.yml` file with the following configurations:
 
   ```yaml
   math:
