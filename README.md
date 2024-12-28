@@ -31,7 +31,7 @@ This repository includes minor updates to the Academia theme. For detailed infor
 ## To-do list
 
 - [ ] Add a category into the sidebar.
-- [ ] Complete tegs.
+- [x] Complete tegs.
 
 ## Acknowledgements
 
