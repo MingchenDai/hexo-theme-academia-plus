@@ -5,6 +5,7 @@ block content
         - var tag_name=[]
         - var tag_list=[]
         - var tag_item=[]
+        - var tag_date=[]
         - var content = ''
         - var library = ''
         - var pageArray = site.pages.toArray()
@@ -20,21 +21,25 @@ block content
                                     - tag_list[tag_name.indexOf(tag)][tag_list[tag_name.indexOf(tag)].length-1] =article.path
                                     - tag_item[tag_name.indexOf(tag)][tag_list[tag_name.indexOf(tag)].length] = ''
                                     - tag_item[tag_name.indexOf(tag)][tag_list[tag_name.indexOf(tag)].length-1] =article.title
+                                    - tag_date[tag_name.indexOf(tag)][tag_list[tag_name.indexOf(tag)].length] = ''
+                                    - tag_date[tag_name.indexOf(tag)][tag_list[tag_name.indexOf(tag)].length-1] =article.date
                                     - flag = 0
                                     - break 
                         if flag
                             - tag_name[tag_name.length] = item 
                             - tag_list[tag_name.length-1] = [article.path]
                             - tag_item[tag_name.length-1] = [article.title]
+                            - tag_date[tag_name.length-1] = [article.date]
                         - flag = 1
+        - tag_name.sort((a,b)=>{if(a.localeCompare(b)>0){[tag_list[tag_name.indexOf(a)],tag_list[tag_name.indexOf(b)]]=[tag_list[tag_name.indexOf(b)],tag_list[tag_name.indexOf(a)]];[tag_item[tag_name.indexOf(a)],tag_item[tag_name.indexOf(b)]]=[tag_item[tag_name.indexOf(b)],tag_item[tag_name.indexOf(a)]];[tag_date[tag_name.indexOf(a)],tag_date[tag_name.indexOf(b)]]=[tag_date[tag_name.indexOf(b)],tag_date[tag_name.indexOf(a)]];}return a.localeCompare(b);})
         each tag in tag_name 
             if ((tag_list[tag_name.indexOf(tag)]) && (tag!==' '))
                 - content += '<h3 id="'+tag+'">'+tag+'</h3>'
                 - content += tag_list[tag_name.indexOf(tag)].length+' <i>Posts</i><br>'
                 each article in tag_list[tag_name.indexOf(tag)]
                     if article!=' '
-                        - content += '<li><a href="../'+article+'">'+tag_item[tag_name.indexOf(tag)][tag_list[tag_name.indexOf(tag)].indexOf(article)]+'</a></li>'
-        - tag_name.sort((a,b)=>{return a.localeCompare(b);})
+                        - content += '<li><b>'+moment(tag_date[tag_name.indexOf(tag)][tag_list[tag_name.indexOf(tag)].indexOf(article)]).format("YYYY-MM-DD")+'</b> <a href="../'+article+'">'+tag_item[tag_name.indexOf(tag)][tag_list[tag_name.indexOf(tag)].indexOf(article)]+'</a></li>'
+        - tag_name.sort((a,b)=>{if(a.localeCompare(b)>0){[tag_list[tag_name.indexOf(a)],tag_list[tag_name.indexOf(b)]]=[tag_list[tag_name.indexOf(b)],tag_list[tag_name.indexOf(a)]];[tag_item[tag_name.indexOf(a)],tag_item[tag_name.indexOf(b)]]=[tag_item[tag_name.indexOf(b)],tag_item[tag_name.indexOf(a)]];[tag_date[tag_name.indexOf(a)],tag_date[tag_name.indexOf(b)]]=[tag_date[tag_name.indexOf(b)],tag_date[tag_name.indexOf(a)]];}return a.localeCompare(b);})
         each tag in tag_name 
             - library+= '#<a href="/Tags/index.html#'+tag+'"><i>'+tag+'</i></a> '
         h2.page-title!= page.title
