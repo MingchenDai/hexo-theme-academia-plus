@@ -15,9 +15,10 @@ block content
         - title += page.title
         h2.page-title!= title
         if page.tags 
+            - page.tags.sort((a,b)=>{return a.localeCompare(b);})
             - tag += ' '
             if page.tags.length
                 each item, index in page.tags
-                    - tag += '#<a href="/Tags/#'+item+'"><i>'+item+'</i></a> '
+                    - tag += '#<a href="/Tags/index.html#'+item+'"><i>'+item+'</i></a> '
             - tag += '<br>'
         article!= tag+align+page.content
