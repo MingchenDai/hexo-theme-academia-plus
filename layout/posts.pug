@@ -7,7 +7,7 @@ block content
         - pageArray.sort((a,b)=>{let com=new Date(b.date)-new Date(a.date);if(com !== 0)return com;return a.title.localeCompare(b.title);})
         each article in pageArray
             if((article.type === 'Post') && (article.section === 'Posts'))
-                - content += '<li><b>'+moment(article.date).format("YYYY-MM-DD")+'</b> <a href="../'+article.path+'">'+article.title+'</a></li><br>'
+                - content += '<li><b>'+moment(article.date).format("YYYY-MM-DD")+'</b> <a href="../'+article.path+'">'+article.title+'</a></li>'
         h2.page-title!= page.title
         article!= content
         
