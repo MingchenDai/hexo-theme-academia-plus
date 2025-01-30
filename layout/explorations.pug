@@ -7,7 +7,13 @@ block content
         - pageArray.sort((a,b)=>{let com=new Date(b.date)-new Date(a.date);if(com !== 0)return com;return a.title.localeCompare(b.title);})
         each article in pageArray
             if((article.type === 'Post') && (article.section === 'Explorations'))
-                - content += '<li><b>'+moment(article.date).format("YYYY-MM-DD")+'</b> <a href="../'+article.path+'">'+article.title+'</a></li>'
+                - var plainText = article.content.replace(/<[^>]+>/g, ''); // 去除 HTML 标签
+                - plainText = plainText.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'); // 去除 Markdown 链接
+                - plainText = plainText.replace(/\*\*([^*]+)\*\*/g, '$1'); // 去除 Markdown 加粗
+                - plainText = plainText.replace(/\*([^*]+)\*/g, '$1'); // 去除 Markdown 斜体
+                - plainText = plainText.replace(/\s+/g, ' ').trim(); // 去除多余空格
+                - var excerpt = plainText.split(/\s+/).slice(0, 50).join(' '); // 提取前50个单词
+                - content += '<li><b>'+moment(article.date).format("YYYY-MM-DD")+'</b> <a href="../'+article.path+'">'+article.title+'</a><p><i>'+excerpt+'...</i></p></li>'
         h2.page-title!= page.title
         article!= content
         
