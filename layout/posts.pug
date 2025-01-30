@@ -13,7 +13,7 @@ block content
                 - plainText = plainText.replace(/\*([^*]+)\*/g, '$1');
                 - plainText = plainText.replace(/\s+/g, ' ').trim();
                 - var excerpt = plainText.split(/\s+/).slice(0, 50).join(' ');
-                - content += '<li><b>'+moment(article.date).format("YYYY-MM-DD")+'</b> <a href="../'+article.path+'">'+article.title+'</a><p><i>'+excerpt+'...</i></p></li>'
+                - content += '<li><b>'+moment(article.date).format("YYYY-MM-DD")+'</b> <a href="../'+article.path+'">'+article.title+'</a><br><i>'+excerpt+'...</i></li>'
         h2.page-title!= page.title
         article!= content
         
