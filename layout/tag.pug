@@ -25,9 +25,8 @@ block content
                         - flag = 1
         - tag_com.sort((a,b)=>{return a[0].localeCompare(b[0]);})
         each tag_list in tag_com 
-            - content += '<h3 id="'+tag_list[0]+'">'+tag_list[0]+'</h3>'
             - var list_length=tag_list.length-1
-            - content += list_length +' <i>Posts</i><br>'
+            - content += '<h3 id="'+tag_list[0]+'">'+tag_list[0]+'<sup>'+list_length+'</sup></h3>'
             - tag_name[tag_name.length]=tag_list.shift();
             - tag_list.sort((a,b)=>{let com=new Date(b.date)-new Date(a.date);if(com !== 0)return com;return a.title.localeCompare(b.title);})
             each article in tag_list
