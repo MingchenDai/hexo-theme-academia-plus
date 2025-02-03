@@ -6,9 +6,9 @@ block content
         - var title = ''
         - var tag = '<p>'
         if page.date 
-            - align += 'Latest Update on <b>'+moment(page.date).format("YYYY-MM-DD")+'</b>'
+            - align += '<b><i class="far fa-calendar"></i> '+moment(page.date).format("YYYY-MM-DD")+'</b>'
         if page.github_link 
-            - align += '<b> | </b>Available in <a href="'+page.github_link+'"><b>GitHub</b></a>'
+            - align += '<b> | </b><a class="social-icon" href='+page.github_link+' target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a>'
         if ((page.section) && (page.type === 'Post'))
             - title += page.section+': '
         - title += page.title
@@ -20,6 +20,6 @@ block content
             - tag += ' '
             if page.tags.length
                 each item, index in page.tags
-                    - tag += '#<a href="/Tags/index.html#'+item+'"><i>'+item+'</i></a>\t'
+                    - tag += '<i class="fas fa-tag"></i> <a href="/Tags/index.html#'+item+'"><i>'+item+'</i></a>\t'
             tags!=tag+'<br>'+align+'</p>'
         article!= page.content

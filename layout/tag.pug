@@ -37,8 +37,8 @@ block content
                     - plainText = plainText.replace(/\*([^*]+)\*/g, '$1');
                     - plainText = plainText.replace(/\s+/g, ' ').trim();
                     - var excerpt = plainText.split(/\s+/).slice(0, 50).join(' ');
-                    - content += '<li><b>'+moment(article.date).format("YYYY-MM-DD")+'</b> <a href="../'+article.path+'">'+article.title+'</a><br><i>'+excerpt+'...</i></li>'
+                    - content += '<i class="fab fa-telegram-plane"></i> <a href="../'+article.path+'"><b>'+article.title+'</b></a> <i class="far fa-calendar"></i> <b>'+moment(article.date).format("YYYY-MM-DD")+'</b><br><i class="fas fa-align-left"></i> <i>'+excerpt+'...</i><br>'
         each tag in tag_name 
-            - library+= '#<a href="/Tags/index.html#'+tag+'"><i>'+tag+'</i></a> '
+            - library+= '<i class="fas fa-tag"></i> <a href="/Tags/index.html#'+tag+'"><i>'+tag+'</i></a> '
         h2.page-title!= page.title
         article!= library+content
