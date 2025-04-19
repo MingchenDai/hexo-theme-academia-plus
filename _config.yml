@@ -3,7 +3,7 @@ favicon: /img/favicon.png
 avatar: /img/avatar.jpg
 # if author sets in hexo_config, this string doesn't work
 author: Mingchen Dai
-author_bio: 'An Information Security undergraduate of Shanghai Jiao Tong University'
+author_bio: 'Information Security undergraduate, Shanghai Jiao Tong University'
 
 since: 2024
 

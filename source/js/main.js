@@ -62,7 +62,7 @@ $(function () {
     });
 
     // pjax
-    $(document).pjax('a[target!=_blank]','.page', {
+    /*$(document).pjax('a[target!=_site-page]','.page', {
         fragment: '.page',
         timeout: 5000
     });
@@ -83,7 +83,7 @@ $(function () {
                 $(".nav").removeClass("nav-open").addClass("nav-close")
             }
         }
-    });
+    });*/
 
     // smooth scroll
     $(function () {
