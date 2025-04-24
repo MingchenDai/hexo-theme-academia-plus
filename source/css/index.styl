@@ -6,6 +6,18 @@ $theme-blue = #1353d7;
 $theme-dark-blue = #096494;
 $theme-red = #c62641;
 
+@font-face
+  font-family 'MySmallCapsFont'
+  src url('fonts/d79a9f1ec939a42b149ef9742c453f49.eot')
+  src url('fonts/d79a9f1ec939a42b149ef9742c453f49.eot?#iefix') format("embedded-opentype"),
+      url('fonts/d79a9f1ec939a42b149ef9742c453f49.woff') format("woff"),
+      url('fonts/d79a9f1ec939a42b149ef9742c453f49.woff2') format("woff2"),
+      url('fonts/d79a9f1ec939a42b149ef9742c453f49.ttf') format("truetype"),
+      url('fonts/d79a9f1ec939a42b149ef9742c453f49.svg#Altra W00 Small Caps') format("svg"),
+      url('fonts/MyFont.ttf') format('truetype')
+  font-weight normal
+  font-style normal
+
 *
   -webkit-text-size-adjust: none;
 
@@ -78,6 +90,7 @@ blockquote
     text-decoration: none;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
+    font-family: MySmallCapsFont;
     &:hover
       color: black;
 
@@ -126,6 +139,7 @@ blockquote
         padding: 8px 15px;
         text-decoration: none;
         transition: all 0.2s ease-in-out 0s;
+        
 
 .menus_icon
   display inline-block
@@ -172,6 +186,7 @@ blockquote
         padding: 0.8rem 0;
         color: #7a8288;
         text-decoration: none;
+        font-family: MySmallCapsFont;
         &::before
           content: "";
           position: absolute;
